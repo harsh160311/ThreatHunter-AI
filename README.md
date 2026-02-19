@@ -46,14 +46,24 @@ This project is built using **Python 3** and requires the following libraries:
 ### 1️⃣ Clone the Repository
 Open your terminal or command prompt and run:
 ```bash
+# 1. Clone the repository
 git clone [https://github.com/harsh160311/ThreatHunter-AI.git](https://github.com/harsh160311/ThreatHunter-AI.git)
 cd ThreatHunter-AI
-sudo apt install clamav -y
+
+# 2. Update System & Install ClamAV
 sudo apt update
+sudo apt install clamav -y
+
+# 3. Install Python Dependencies
 sudo apt install python3-pyqt5 python3-sklearn python3-joblib python3-requests python3-numpy -y
+
+# 4. Verify Files
 ls
-pyhton3 db_updater.py
+
+# 5. Update Database & Run App
+python3 db_updater.py
 python3 app.py
+
 
 `````
 
@@ -125,3 +135,4 @@ Always test malware in an isolated Virtual Machine (VM).
 Harsh
 
 Cybersecurity Enthusiast & Developer
+
