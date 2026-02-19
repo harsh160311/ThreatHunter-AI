@@ -114,14 +114,15 @@ ThreatHunter-AI/
 ├── requirements.txt       # List of Dependencies  
 └── README.md              # Documentation  
 
-⚠️ Disclaimer
-For Educational Purposes Only.
+⚠️ Disclaimer  
+For Educational Purposes Only.  
 This tool is designed to help cybersecurity enthusiasts and researchers understand malware analysis and antivirus architecture. The developer is not responsible for any damage caused by the misuse of this tool.
 Always test malware in an isolated Virtual Machine (VM).
 
 👨‍💻 Author  
 Harsh (@harsh160311)  
 Cybersecurity Enthusiast & Developer
+
 
 
 
