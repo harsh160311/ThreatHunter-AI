@@ -67,17 +67,7 @@ python3 app.py
 
 `````
 
-Install Dependencies
-For Windows:
-
-Bash
-pip install -r requirements.txt
-For Kali Linux / Ubuntu:
-
-Bash
-sudo apt update
-sudo apt install python3-pyqt5 python3-sklearn python3-joblib python3-requests
-🚀 How to Run
+🚀 How to Run (Detailed)
 🪟 On Windows (Automated)
 We have included a smart batch script that updates the database, retrains the AI, and launches the app in one go.
 
@@ -90,12 +80,14 @@ Wait for the initialization to complete.
 (Or run manually via terminal):
 
 Bash
+pip install -r requirements.txt
 python app.py
-🐧 On Linux (Kali/Ubuntu)
-Open your terminal in the project folder and run:
+🐧 On Linux (Manual)
+If you prefer running steps manually:
 
 Bash
-python3 app.py
+python3 db_updater.py   # Updates malware signatures
+python3 app.py          # Launches the GUI
 🧠 How It Works (The Logic)
 The scanner follows a strict Multi-Layered Security Protocol:
 
@@ -114,6 +106,7 @@ Layer B (Whitelist): Checks if the file belongs to trusted applications (Tor, Fi
 Layer C (AI Heuristics): If the file is unknown, the AI Engine analyzes its Entropy (Randomness) and Suspicious Keywords (e.g., eval, socket, powershell).
 
 📂 Project Structure
+Plaintext
 ThreatHunter-AI/
 ├── app.py                 # Main GUI Application (Entry Point)
 ├── scanner.py             # Core Scanning Engine (Logic)
@@ -135,4 +128,5 @@ Always test malware in an isolated Virtual Machine (VM).
 Harsh
 
 Cybersecurity Enthusiast & Developer
+
 
