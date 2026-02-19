@@ -47,7 +47,7 @@ This project is built using **Python 3** and requires the following libraries:
 Open your terminal or command prompt and run:
 ```bash
 # 1. Clone the repository
-git clone [https://github.com/harsh160311/ThreatHunter-AI.git](https://github.com/harsh160311/ThreatHunter-AI.git)
+git clone https://github.com/harsh160311/ThreatHunter-AI.git
 cd ThreatHunter-AI
 
 # 2. Update System & Install ClamAV
@@ -122,6 +122,7 @@ Always test malware in an isolated Virtual Machine (VM).
 👨‍💻 Author  
 Harsh (@harsh160311)  
 Cybersecurity Enthusiast & Developer
+
 
 
 
