@@ -67,8 +67,8 @@ python3 app.py
 
 `````
 
-⚙️ Installation Guide (Windows)
-1️⃣ Automated Setup (Recommended)
+⚙️ Installation Guide (Windows)  
+1️⃣ Automated Setup (Recommended)  
 We have included a smart batch script that updates the database, retrains the AI, and launches the app in one go.
 
 Locate RunProject.bat in the folder.
@@ -122,6 +122,7 @@ Always test malware in an isolated Virtual Machine (VM).
 👨‍💻 Author
 Harsh (@harsh160311)
 Cybersecurity Enthusiast & Developer
+
 
 
 
