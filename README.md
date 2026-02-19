@@ -69,21 +69,20 @@ python3 app.py
 
 ⚙️ Installation Guide (Windows)  
 1️⃣ Automated Setup (Recommended)  
-We have included a smart batch script that updates the database, retrains the AI, and launches the app in one go.
-
-Locate RunProject.bat in the folder.
+We have included a smart batch script that updates the database, retrains the AI, and launches the app in one go.  
+Locate RunProject.bat in the folder.  
 
 Double-click it.
 
-Wait for the initialization to complete.
+Wait for the initialization to complete.  
 
-2️⃣ Manual Setup
+2️⃣ Manual Setup  
 If you prefer using the terminal:
 
-Bash
-pip install -r requirements.txt
-python app.py
-🧠 How It Works (The Logic)
+Bash  
+pip install -r requirements.txt  
+python app.py  
+🧠 How It Works (The Logic)  
 The scanner follows a strict Multi-Layered Security Protocol:
 
 Phase 1: System Integrity Check
@@ -114,14 +113,16 @@ ThreatHunter-AI/
 ├── RunProject.bat         # One-Click Launcher for Windows  
 ├── requirements.txt       # List of Dependencies  
 └── README.md              # Documentation  
+
 ⚠️ Disclaimer
 For Educational Purposes Only.
 This tool is designed to help cybersecurity enthusiasts and researchers understand malware analysis and antivirus architecture. The developer is not responsible for any damage caused by the misuse of this tool.
 Always test malware in an isolated Virtual Machine (VM).
 
-👨‍💻 Author
-Harsh (@harsh160311)
+👨‍💻 Author  
+Harsh (@harsh160311)  
 Cybersecurity Enthusiast & Developer
+
 
 
 
