@@ -100,20 +100,20 @@ Layer B (Whitelist): Checks if the file belongs to trusted applications (Tor, Fi
 
 Layer C (AI Heuristics): If the file is unknown, the AI Engine analyzes its Entropy (Randomness) and Suspicious Keywords (e.g., eval, socket, powershell).
 
-📂 Project Structure
-Plaintext
-ThreatHunter-AI/
-├── app.py                 # Main GUI Application (Entry Point)
-├── scanner.py             # Core Scanning Engine (Logic)
-├── feature_extractor.py   # File Analysis Tool (Entropy & Keywords)
-├── model.py               # AI Prediction Logic (The Brain)
-├── train_model.py         # Script to Train/Retrain the AI Model
-├── db_updater.py          # Script to Update Virus Database
-├── malware_db.json        # Local Database of Virus Hashes
-├── malware_model.pkl      # Trained AI Model File
-├── RunProject.bat         # One-Click Launcher for Windows
-├── requirements.txt       # List of Dependencies
-└── README.md              # Documentation
+📂 Project Structure  
+Plaintext  
+ThreatHunter-AI/  
+├── app.py                 # Main GUI Application (Entry Point)  
+├── scanner.py             # Core Scanning Engine (Logic)  
+├── feature_extractor.py   # File Analysis Tool (Entropy & Keywords)  
+├── model.py               # AI Prediction Logic (The Brain)   
+├── train_model.py         # Script to Train/Retrain the AI Model  
+├── db_updater.py          # Script to Update Virus Database  
+├── malware_db.json        # Local Database of Virus Hashes  
+├── malware_model.pkl      # Trained AI Model File  
+├── RunProject.bat         # One-Click Launcher for Windows  
+├── requirements.txt       # List of Dependencies  
+└── README.md              # Documentation  
 ⚠️ Disclaimer
 For Educational Purposes Only.
 This tool is designed to help cybersecurity enthusiasts and researchers understand malware analysis and antivirus architecture. The developer is not responsible for any damage caused by the misuse of this tool.
@@ -122,6 +122,7 @@ Always test malware in an isolated Virtual Machine (VM).
 👨‍💻 Author
 Harsh (@harsh160311)
 Cybersecurity Enthusiast & Developer
+
 
 
 
