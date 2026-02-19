@@ -67,8 +67,8 @@ python3 app.py
 
 `````
 
-🚀 How to Run (Detailed)
-🪟 On Windows (Automated)
+⚙️ Installation Guide (Windows)
+1️⃣ Automated Setup (Recommended)
 We have included a smart batch script that updates the database, retrains the AI, and launches the app in one go.
 
 Locate RunProject.bat in the folder.
@@ -77,17 +77,12 @@ Double-click it.
 
 Wait for the initialization to complete.
 
-(Or run manually via terminal):
+2️⃣ Manual Setup
+If you prefer using the terminal:
 
 Bash
 pip install -r requirements.txt
 python app.py
-🐧 On Linux (Manual)
-If you prefer running steps manually:
-
-Bash
-python3 db_updater.py   # Updates malware signatures
-python3 app.py          # Launches the GUI
 🧠 How It Works (The Logic)
 The scanner follows a strict Multi-Layered Security Protocol:
 
@@ -125,8 +120,8 @@ This tool is designed to help cybersecurity enthusiasts and researchers understa
 Always test malware in an isolated Virtual Machine (VM).
 
 👨‍💻 Author
-Harsh
-
+Harsh (@harsh160311)
 Cybersecurity Enthusiast & Developer
+
 
 
