@@ -46,22 +46,31 @@ This project is built using **Python 3** and requires the following libraries:
 
 ### 1️⃣ Clone the Repository & Run
 Open your terminal and run:
-```bash
+
 # 1. Clone the repository
+```bash
 git clone https://github.com/harsh160311/ThreatHunter-AI.git
+```
+```bash
 cd ThreatHunter-AI
-
+```
 # 2. Update System & Install ClamAV
+```bash
 sudo apt update
+```
+```bash
 sudo apt install clamav -y
-
+```
 # 3. Install Python Dependencies
+```bash
 sudo apt install python3-pyqt5 python3-sklearn python3-joblib python3-requests python3-numpy -y
-
+```
 # 4. Verify Files
+```bash
 ls
-
+```
 # 5. Run the Application (Automatically trains AI & updates DB)
+```bash
 python3 app.py
 
 ```
@@ -78,6 +87,8 @@ Open terminal/cmd and run:
 
 ```bash
 pip install -r requirements.txt
+```
+```bash
 python app.py
 
 ```
@@ -106,7 +117,7 @@ The scanner follows a strict Multi-Layered Security Protocol:
 
 ## 📂 Project Structure
 
-```
+
 ThreatHunter-AI/
 ├── app.py                 # Main GUI Application & Master Controller (Entry Point)
 ├── scanner.py             # Core Scanning Engine (Logic)
@@ -119,7 +130,7 @@ ThreatHunter-AI/
 ├── requirements.txt       # List of Dependencies
 └── README.md              # Documentation
 
-```
+
 
 
 ## ⚠️ Disclaimer
@@ -131,6 +142,7 @@ This tool is designed to help cybersecurity enthusiasts and researchers understa
 
 ## 👨‍💻 Author
 
-**Harsh (@harsh160311)**
+**Harsh (@harsh160311)** 
 Cybersecurity Enthusiast & Developer
+
 
