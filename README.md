@@ -117,7 +117,7 @@ The scanner follows a strict Multi-Layered Security Protocol:
 
 ## 📂 Project Structure
 
- 
+ ```text
 ThreatHunter-AI/
 ├── app.py                 # Main GUI Application & Master Controller (Entry Point)
 ├── scanner.py             # Core Scanning Engine (Logic)
@@ -130,7 +130,7 @@ ThreatHunter-AI/
 ├── requirements.txt       # List of Dependencies
 └── README.md              # Documentation
 
-
+```
 
 
 ## ⚠️ Disclaimer
@@ -144,6 +144,7 @@ This tool is designed to help cybersecurity enthusiasts and researchers understa
 
 **Harsh (@harsh160311)** 
 Cybersecurity Enthusiast & Developer
+
 
 
 
