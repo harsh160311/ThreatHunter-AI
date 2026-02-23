@@ -81,8 +81,11 @@ pip install -r requirements.txt
 python app.py
 
 ```
+**(Optional)** If the above command fails for any reason, you can manually install the required libraries using:
 
----
+```bash
+pip install PyQt5 scikit-learn joblib requests numpy
+```
 
 ## 🧠 How It Works (The Logic)
 
@@ -130,3 +133,4 @@ This tool is designed to help cybersecurity enthusiasts and researchers understa
 
 **Harsh (@harsh160311)**
 Cybersecurity Enthusiast & Developer
+
