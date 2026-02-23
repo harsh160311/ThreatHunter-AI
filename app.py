@@ -1,6 +1,8 @@
 import sys
 import os
-import platform  
+import platform
+import subprocess  # Added missing import
+import db_updater  # Added missing import
 from PyQt5.QtWidgets import (QApplication, QWidget, QVBoxLayout, QHBoxLayout, 
                              QPushButton, QTextEdit, QLabel, QFileDialog, QProgressBar)
 from PyQt5.QtGui import QTextCursor, QColor, QTextCharFormat 
@@ -271,6 +273,29 @@ class MalwareScanner(QWidget):
             self.text_edit.setTextColor(QColor('#00ff00'))
 
 if __name__ == "__main__":
+    print("------------------------------------------------")
+    print("🚀 SYSTEM STARTUP SEQUENCE INITIATED")
+    print("------------------------------------------------")
+
+    # --- STEP 1: TRAIN THE AI MODEL ---
+    print("🧠 [1/3] Training AI Model. Please wait...")
+    try:
+        # Automatically use 'python' for Windows and 'python3' for Linux
+        py_command = "python" if platform.system() == "Windows" else "python3"
+        subprocess.run([py_command, "train_model.py"], check=True)
+        print("✅ AI Model Trained Successfully!")
+    except Exception as e:
+        print(f"⚠ Warning: AI Training Failed: {e}")
+
+    # --- STEP 2: UPDATE THE DATABASE ---
+    print("\n🔄 [2/3] Updating Malware Database...")
+    try:
+        db_updater.update_database()
+    except Exception as e:
+        print(f"⚠ Update Failed (Running in Offline Mode): {e}")
+
+    # --- STEP 3: OPEN THE APP (GUI) ---
+    print("\n💻 [3/3] Starting User Interface...")
     app = QApplication(sys.argv)
     window = MalwareScanner()
     window.show()
