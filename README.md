@@ -13,6 +13,7 @@
 
 ## ✨ Key Features
 
+- **🚀 Zero-Touch Initialization (NEW):** Automatically trains the AI model and fetches the latest malware signatures from the cloud on startup. No manual scripts needed!
 - **🧠 Hybrid AI Engine:** Detects unknown threats using a Random Forest Classifier trained on file entropy and suspicious keywords.
 - **📂 Signature Scanning:** Matches file hashes against a local database of 800+ known malware signatures (sourced from MalwareBazaar).
 - **🛡️ Windows Integration:** Automatically checks **Windows Defender Logs** before scanning to save time.
@@ -36,15 +37,15 @@ This project is built using **Python 3** and requires the following libraries:
 
 ---
 
-## ⚙️ Installation Guide
+## ⚙️ Installation Guide (Linux/Kali)
 
 ### Prerequisites
 - **Python 3.8+** installed.
 - **Git** installed.
 - **(Linux Only)** ClamAV installed: `sudo apt install clamav`
 
-### 1️⃣ Clone the Repository
-Open your terminal or command prompt and run:
+### 1️⃣ Clone the Repository & Run
+Open your terminal and run:
 ```bash
 # 1. Clone the repository
 git clone https://github.com/harsh160311/ThreatHunter-AI.git
@@ -60,73 +61,72 @@ sudo apt install python3-pyqt5 python3-sklearn python3-joblib python3-requests p
 # 4. Verify Files
 ls
 
-# 5. Update Database & Run App
-python3 db_updater.py
+# 5. Run the Application (Automatically trains AI & updates DB)
 python3 app.py
 
+```
 
-`````
+---
 
-⚙️ Installation Guide (Windows)  
-1️⃣ Automated Setup (Recommended)  
-We have included a smart batch script that updates the database, retrains the AI, and launches the app in one go.  
-Locate RunProject.bat in the folder.  
+## ⚙️ Installation Guide (Windows)
 
-Double-click it.
+### 1️⃣ One-Step Execution
 
-Wait for the initialization to complete.  
+You no longer need to run multiple scripts. The main application automatically handles AI training and database updates on startup.
 
-2️⃣ Manual Setup  
-If you prefer using the terminal:
+Open terminal/cmd and run:
 
-Bash  
-pip install -r requirements.txt  
-python app.py  
-🧠 How It Works (The Logic)  
+```bash
+pip install -r requirements.txt
+python app.py
+
+```
+
+---
+
+## 🧠 How It Works (The Logic)
+
 The scanner follows a strict Multi-Layered Security Protocol:
 
-Phase 1: System Integrity Check
+**Phase 1: System Integrity Check**
 
-Windows: Checks if Windows Defender is active. If yes, it pulls recent threat logs.
+* **Windows:** Checks if Windows Defender is active. If yes, it pulls recent threat logs.
+* **Linux:** Executes a clamscan on the target directory to find known Linux threats (like Rootkits/Webshells).
 
-Linux: Executes a clamscan on the target directory to find known Linux threats (like Rootkits/Webshells).
+**Phase 2: Deep Hybrid Scan**
 
-Phase 2: Deep Hybrid Scan
+* **Layer A (Signature):** Calculates SHA256 Hash of every file and checks it against `malware_db.json`.
+* **Layer B (Whitelist):** Checks if the file belongs to trusted applications (Tor, Firefox, Python venv) to avoid False Positives.
+* **Layer C (AI Heuristics):** If the file is unknown, the AI Engine analyzes its Entropy (Randomness) and Suspicious Keywords (e.g., eval, socket, powershell).
 
-Layer A (Signature): Calculates SHA256 Hash of every file and checks it against malware_db.json.
+---
 
-Layer B (Whitelist): Checks if the file belongs to trusted applications (Tor, Firefox, Python venv) to avoid False Positives.
+## 📂 Project Structure
 
-Layer C (AI Heuristics): If the file is unknown, the AI Engine analyzes its Entropy (Randomness) and Suspicious Keywords (e.g., eval, socket, powershell).
+```
+ThreatHunter-AI/
+├── app.py                 # Main GUI Application & Master Controller (Entry Point)
+├── scanner.py             # Core Scanning Engine (Logic)
+├── feature_extractor.py   # File Analysis Tool (Entropy & Keywords)
+├── model.py               # AI Prediction Logic (The Brain) 
+├── train_model.py         # Script to Train/Retrain the AI Model
+├── db_updater.py          # Script to Update Virus Database
+├── malware_db.json        # Local Database of Virus Hashes
+├── malware_model.pkl      # Trained AI Model File
+├── requirements.txt       # List of Dependencies
+└── README.md              # Documentation
 
-📂 Project Structure  
-Plaintext  
-ThreatHunter-AI/  
-├── app.py                 # Main GUI Application (Entry Point)  
-├── scanner.py             # Core Scanning Engine (Logic)  
-├── feature_extractor.py   # File Analysis Tool (Entropy & Keywords)  
-├── model.py               # AI Prediction Logic (The Brain)   
-├── train_model.py         # Script to Train/Retrain the AI Model  
-├── db_updater.py          # Script to Update Virus Database  
-├── malware_db.json        # Local Database of Virus Hashes  
-├── malware_model.pkl      # Trained AI Model File  
-├── RunProject.bat         # One-Click Launcher for Windows  
-├── requirements.txt       # List of Dependencies  
-└── README.md              # Documentation  
+```
 
-⚠️ Disclaimer  
-For Educational Purposes Only.  
-This tool is designed to help cybersecurity enthusiasts and researchers understand malware analysis and antivirus architecture. The developer is not responsible for any damage caused by the misuse of this tool.
-Always test malware in an isolated Virtual Machine (VM).
 
-👨‍💻 Author  
-Harsh (@harsh160311)  
+## ⚠️ Disclaimer
+
+**For Educational Purposes Only.**
+This tool is designed to help cybersecurity enthusiasts and researchers understand malware analysis and antivirus architecture. The developer is not responsible for any damage caused by the misuse of this tool. Always test malware in an isolated Virtual Machine (VM).
+
+
+
+## 👨‍💻 Author
+
+**Harsh (@harsh160311)**
 Cybersecurity Enthusiast & Developer
-
-
-
-
-
-
-
-
