@@ -1,3 +1,10 @@
+# ==============================================================================
+# 🛡️ ThreatHunter AI
+# © 2026 Harsh (@harsh160311). All rights reserved.
+# 
+# This source code is licensed under the MIT license found in the
+# LICENSE file in the root directory of this source tree.
+# ==============================================================================
 import math
 import os
 from collections import Counter
@@ -74,4 +81,5 @@ def extract_features(file_path):
 
     except Exception as e:
         # Return None if file access fails (e.g., permission denied)
+
         return None
