@@ -1,3 +1,10 @@
+# ==============================================================================
+# 🛡️ ThreatHunter AI
+# © 2026 Harsh (@harsh160311). All rights reserved.
+# 
+# This source code is licensed under the MIT license found in the
+# LICENSE file in the root directory of this source tree.
+# ==============================================================================
 import os
 import platform
 import subprocess
@@ -276,4 +283,5 @@ class ScanThread(QThread):
 
         self.progress.emit(f"\n✅ Scan Completed. Files Checked: {file_count}")
         self.threats.emit(threats)
+
         self.finished_signal.emit()
