@@ -1,3 +1,10 @@
+# ==============================================================================
+# 🛡️ ThreatHunter AI
+# © 2026 Harsh (@harsh160311). All rights reserved.
+# 
+# This source code is licensed under the MIT license found in the
+# LICENSE file in the root directory of this source tree.
+# ==============================================================================
 import os
 import joblib
 
@@ -81,5 +88,6 @@ def predict(features):
                 return "Safe (AI Verified)"
         except:
             return "Safe (Model Error)"
+
 
     return "Safe (Default)"
