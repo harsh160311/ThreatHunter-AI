@@ -166,6 +166,13 @@ class ScanThread(QThread):
                     
                     found_log = False
                     for line in proc_log.stdout:
+                        # 👉 Pause Logic for Windows Defender
+                        while self.is_paused:
+                            time.sleep(0.5)
+                        if not self.is_running: 
+                            proc_log.terminate()
+                            break
+
                         if line.strip() and "ThreatName" not in line and "---" not in line:
                             parts = line.split()
                             if len(parts) > 0:
@@ -185,13 +192,12 @@ class ScanThread(QThread):
                 self.progress.emit(">>> Phase 1: Engaging Emergency Database Scan.")
 
         elif os_type == "Linux":
-             # CASE C: Linux (ClamAV) - UPDATED FOR LIVE PROGRESS
+             # CASE C: Linux (ClamAV)
             self.progress.emit("\n>>> Phase 1: Running ClamAV Deep Scan...")
             try:
                 # Check if ClamAV is installed
                 check_cmd = subprocess.run(["which", "clamscan"], stdout=subprocess.PIPE)
                 if check_cmd.returncode == 0:
-                    # Run ClamAV scan (Removed --infected to get live output)
                     cmd = ["clamscan", "-r", "--no-summary", self.folder]
                     process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
                     
@@ -200,6 +206,10 @@ class ScanThread(QThread):
                         if not self.is_running: 
                             process.terminate()
                             break
+                        
+                        # 👉 Pause Logic for Kali Linux (ClamAV)
+                        while self.is_paused:
+                            time.sleep(0.5)
                         
                         clam_count += 1
                         # Show progress every 50 files for ClamAV
