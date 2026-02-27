@@ -43,7 +43,7 @@ class MalwareScanner(QWidget):
                 padding: 10px;
             }
             QLabel#Status {
-                font-size: 16px;
+                font-size: 20px;
                 font-weight: bold;
                 color: #cfcfcf;
                 border: 1px solid #333;
@@ -85,7 +85,7 @@ class MalwareScanner(QWidget):
                 border-radius: 5px;
                 color: #00ff00; 
                 font-family: 'Consolas', 'Courier New', monospace;
-                font-size: 13px;
+                font-size: 18px;
                 padding: 10px;
             }
             QProgressBar {
@@ -307,4 +307,5 @@ if __name__ == "__main__":
     window = MalwareScanner()
     window.show()
     sys.exit(app.exec_())
+
 
