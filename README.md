@@ -137,7 +137,7 @@ ThreatHunter-AI/
 **For Educational Purposes Only.**
 This tool is designed to help cybersecurity enthusiasts and researchers understand malware analysis and antivirus architecture. The developer is not responsible for any damage caused by the misuse of this tool. Always test malware in an isolated Virtual Machine (VM).
 
-### ⚖️ License & Copyright  
+## ⚖️ License & Copyright  
 
 © 2026 Harsh. All rights reserved.  
 This project is licensed under the **MIT License**.  
@@ -147,3 +147,4 @@ You are free to use, modify, and distribute this software, provided that the ori
 
 Harsh (@harsh160311)  
 Cybersecurity Enthusiast & Developer
+
