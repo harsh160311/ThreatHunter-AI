@@ -122,7 +122,6 @@ class ScanThread(QThread):
         
         # 3. DEFINE WHITELISTS (False Positive Prevention)
         # Trust Paths: If a file is inside these folders, assume it is safe.
-        # UPDATED FOR KALI LINUX & DEV TOOLS
         trusted_paths = [
             'tor browser', 'firefox', 'chrome', 'edge', 'google', 
             'steam', 'discord', 'spotify', 'adobe', 'program files', 'windows',
@@ -186,20 +185,27 @@ class ScanThread(QThread):
                 self.progress.emit(">>> Phase 1: Engaging Emergency Database Scan.")
 
         elif os_type == "Linux":
-             # CASE C: Linux (ClamAV)
+             # CASE C: Linux (ClamAV) - UPDATED FOR LIVE PROGRESS
             self.progress.emit("\n>>> Phase 1: Running ClamAV Deep Scan...")
             try:
                 # Check if ClamAV is installed
                 check_cmd = subprocess.run(["which", "clamscan"], stdout=subprocess.PIPE)
                 if check_cmd.returncode == 0:
-                    # Run ClamAV scan on the selected folder
-                    cmd = ["clamscan", "-r", "--no-summary", "--infected", self.folder]
+                    # Run ClamAV scan (Removed --infected to get live output)
+                    cmd = ["clamscan", "-r", "--no-summary", self.folder]
                     process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
                     
+                    clam_count = 0
                     for line in process.stdout:
                         if not self.is_running: 
                             process.terminate()
                             break
+                        
+                        clam_count += 1
+                        # Show progress every 50 files for ClamAV
+                        if clam_count % 50 == 0:
+                            self.progress.emit(f"ClamAV Engine: {clam_count} files analyzed...")
+
                         if "FOUND" in line:
                             # Parse ClamAV Output: "/path/to/file: VirusName FOUND"
                             parts = line.split(':')
@@ -283,5 +289,4 @@ class ScanThread(QThread):
 
         self.progress.emit(f"\n✅ Scan Completed. Files Checked: {file_count}")
         self.threats.emit(threats)
-
         self.finished_signal.emit()
