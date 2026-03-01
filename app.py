@@ -8,8 +8,8 @@
 import sys
 import os
 import platform
-import subprocess  # Added missing import
-import db_updater  # Added missing import
+import subprocess  
+import db_updater  
 from PyQt5.QtWidgets import (QApplication, QWidget, QVBoxLayout, QHBoxLayout, 
                              QPushButton, QTextEdit, QLabel, QFileDialog, QProgressBar)
 from PyQt5.QtGui import QTextCursor, QColor, QTextCharFormat 
@@ -190,14 +190,18 @@ class MalwareScanner(QWidget):
         if not self.folder_path:
             return
         
-        # UI Updates during scan
+        # UI Updates during scan initialization
         self.scan_button.setEnabled(False)
         self.folder_button.setEnabled(False)
         self.pause_button.setEnabled(True)
         self.stop_button.setEnabled(True)
         self.text_edit.clear()
-        self.progress_bar.show()
         
+        # Reset progress bar to running animation (Green)
+        self.progress_bar.setStyleSheet("QProgressBar::chunk { background-color: #00e676; width: 10px; margin: 0.5px; }")
+        self.progress_bar.setMaximum(0) 
+        self.progress_bar.show()
+
         self.status_label.setText("Status: Scanning in progress...")
         self.status_label.setStyleSheet("color: #FFC107; border: 2px solid #FFC107; background-color: #332200; padding: 8px; font-weight: bold; font-size: 16px;")
 
@@ -214,15 +218,30 @@ class MalwareScanner(QWidget):
             if self.thread.is_paused:
                 self.pause_button.setText("▶ RESUME")
                 self.status_label.setText("Status: Paused")
+                self.text_edit.append("\n⏸ SCAN PAUSED...")
+                
+                # 👉 UI Magic: Change bar to Orange and pause animation at 50%
+                self.progress_bar.setStyleSheet("QProgressBar::chunk { background-color: #ffaa00; width: 10px; margin: 0.5px; }")
+                self.progress_bar.setMaximum(100)
+                self.progress_bar.setValue(50)
             else:
                 self.pause_button.setText("⏸ PAUSE")
                 self.status_label.setText("Status: Scanning...")
+                self.text_edit.append("\n▶ SCAN RESUMED...")
+                
+                # 👉 UI Magic: Restore Green color and resume animation
+                self.progress_bar.setStyleSheet("QProgressBar::chunk { background-color: #00e676; width: 10px; margin: 0.5px; }")
+                self.progress_bar.setMaximum(0)
 
     def stop_scan(self):
         if self.thread:
             self.thread.stop()
             self.status_label.setText("Status: Aborting...")
             self.text_edit.append(">>> Scan Aborted by User.")
+            
+            # 👉 UI Magic: Fill the progress bar completely to indicate termination
+            self.progress_bar.setMaximum(100)
+            self.progress_bar.setValue(100)
 
     # --- LOGIC & REPORTING ---
     def update_progress(self, text):
@@ -289,7 +308,10 @@ if __name__ == "__main__":
     try:
         # Automatically use 'python' for Windows and 'python3' for Linux
         py_command = "python" if platform.system() == "Windows" else "python3"
-        subprocess.run([py_command, "train_model.py"], check=True)
+        
+        # 👉 Disabling frozen modules to prevent debugger warnings in IDEs
+        subprocess.run([py_command, "-Xfrozen_modules=off", "train_model.py"], check=True)
+        
         print("✅ AI Model Trained Successfully!")
     except Exception as e:
         print(f"⚠ Warning: AI Training Failed: {e}")
@@ -307,5 +329,3 @@ if __name__ == "__main__":
     window = MalwareScanner()
     window.show()
     sys.exit(app.exec_())
-
-
