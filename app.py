@@ -24,7 +24,7 @@ class MalwareScanner(QWidget):
     def __init__(self):
         super().__init__()
         # --- WINDOW CONFIGURATION ---
-        self.setWindowTitle("ThreatHunter AI - Professional Edition")
+        self.setWindowTitle("Threat Hunter AI")
         self.setGeometry(100, 100, 950, 700)
         self.folder_path = ""
         self.thread = None
@@ -110,7 +110,7 @@ class MalwareScanner(QWidget):
 
         # 1. HEADER SECTION
         header_layout = QHBoxLayout()
-        self.title_label = QLabel("🛡️ THREATHUNTER AI DETECTOR")
+        self.title_label = QLabel("🛡️ Threat Hunter AI Detector")
         self.title_label.setObjectName("Title")
         header_layout.addWidget(self.title_label)
         main_layout.addLayout(header_layout)
@@ -170,7 +170,7 @@ class MalwareScanner(QWidget):
         self.text_edit.append(">>> Waiting for user command...\n")
 
         # Footer
-        footer = QLabel("Powered by ThreatHunter AI Engine")
+        footer = QLabel("Powered by Threat Hunter AI Engine")
         footer.setStyleSheet("color: #555; font-size: 11px;")
         footer.setAlignment(Qt.AlignRight)
         main_layout.addWidget(footer)
@@ -261,16 +261,16 @@ class MalwareScanner(QWidget):
     def show_threats(self, threats):
         """Displays the final threat report in the console and saves to file."""
         if threats:
-            self.status_label.setText(f"⚠ THREATS DETECTED: {len(threats)}")
+            self.status_label.setText(f"⚠ Threats Detected: {len(threats)}")
             self.status_label.setStyleSheet("color: #ff3333; border: 2px solid #ff3333; background-color: #330000; padding: 8px; font-weight: bold; font-size: 18px;")
             
             self.text_edit.append("\n" + "="*40)
-            self.text_edit.append("🚨 FINAL SECURITY REPORT")
+            self.text_edit.append("🚨 Final Security Report")
             self.text_edit.append("="*40)
 
             # Save report to file
             with open("results/threats_log.txt", "w") as f:
-                f.write("THREATHUNTER AI - DETECTION LOG\n=================================\n")
+                f.write("Threat Hunter AI - Detection Log\n=================================\n")
                 
                 for i, threat in enumerate(threats, 1):
                     cursor = self.text_edit.textCursor()
@@ -291,10 +291,10 @@ class MalwareScanner(QWidget):
             self.text_edit.setTextColor(QColor('#ffffff'))
             self.text_edit.append(">>> Detailed report saved to: results/threats_log.txt")
         else:
-            self.status_label.setText("✅ SYSTEM SECURE")
+            self.status_label.setText("✅ System Secure")
             self.status_label.setStyleSheet("color: #00e676; border: 2px solid #00e676; background-color: #002200; padding: 8px; font-weight: bold; font-size: 18px;")
             self.text_edit.setTextColor(QColor('#00e676'))
-            self.text_edit.append("\n✅ NO ANOMALIES DETECTED.")
+            self.text_edit.append("\n✅ No Anomalsies Detected.")
             self.text_edit.append("System is clean.")
             self.text_edit.setTextColor(QColor('#00ff00'))
 
