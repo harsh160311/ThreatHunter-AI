@@ -280,7 +280,7 @@ class MalwareScanner(QWidget):
                     
                     # Highlight Virus Name in Red
                     fmt.setForeground(QColor('#ff3333')); fmt.setFontWeight(75); cursor.setCharFormat(fmt)
-                    cursor.insertText(f"{i}. [MALWARE] {threat['name']}\n")
+                    cursor.insertText(f"\n{i}. [MALWARE] {threat['name']}\n")
                     
                     # Highlight Path in Orange
                     fmt.setForeground(QColor('#ffaa00')); fmt.setFontWeight(50); cursor.setCharFormat(fmt)
