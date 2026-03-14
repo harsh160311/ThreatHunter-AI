@@ -131,6 +131,10 @@ ThreatHunter-AI/
 └── README.md              # Documentation
 
 ```
+## 🔐 Security Note  
+
+⚠️ **Important:** Always analyze malware samples inside a **Virtual Machine (VM)** or an isolated sandbox environment.  
+Running unknown or suspicious files on your primary operating system can lead to system compromise, data loss, or malware infection.
 
 ## ⚠️ Disclaimer
 
