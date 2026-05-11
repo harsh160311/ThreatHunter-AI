@@ -150,7 +150,7 @@ You are free to use, modify, and distribute this software, provided that the ori
 ## 👨‍💻 Author
 
 Harsh (@harsh160311)  
-Cybersecurity Enthusiast & Developer
-Jyoti (@jyotibala-cyber)
+Cybersecurity Enthusiast & Developer           
+Jyoti (@jyotibala-cyber)                       
 Cybersecurity Enthusiast
 
