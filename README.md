@@ -151,6 +151,5 @@ You are free to use, modify, and distribute this software, provided that the ori
 
 Harsh (@harsh160311)  
 Cybersecurity Enthusiast & Developer           
-Jyoti (@jyotibala-cyber)                       
-Cybersecurity Enthusiast
+
 
