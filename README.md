@@ -11,6 +11,8 @@
 
 ---
 
+🌐 [Visit my Live Portfolio](https://harsh-cyber.netlify.app/)
+
 ## ✨ Key Features
 
 - **🚀 Zero-Touch Initialization (NEW):** Automatically trains the AI model and fetches the latest malware signatures from the cloud on startup. No manual scripts needed!
